@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AlphaBlog</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <% flash.each do |name, msg| %>
-      <%= msg %>
-    <% end %>
+<head>
+  <title>AlphaBlog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'layouts/navigation' %>
+  <%= render 'layouts/messages' %>
+  <div class="container">
     <%= yield %>
-  </body>
+  </div>
+  <%= render 'layouts/footer' %>
+  <% if false %>
+    This code is for debugging purpose only
+    <%= debug(params) if Rails.env.development? %>
+  <% end %>
+</body>
 </html>

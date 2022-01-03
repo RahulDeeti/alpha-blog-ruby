@@ -1,7 +1,9 @@
 <h1 align="center"> <%= @user.username %>'s profile</h1>
 
 <div>
-    <%= link_to "Edit your profile", edit_user_path(@user) %>
+    <% if logged_in? and @user == current_user %>
+        <%= link_to "Edit your profile", edit_user_path(@user) %>
+    <% end %>
 </div>
 <h3 align="center">Articles</h3>
 
