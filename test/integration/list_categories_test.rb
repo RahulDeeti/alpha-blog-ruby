@@ -7,7 +7,9 @@ class ListCategoriesTest < ActionDispatch::IntegrationTest
   end
 
   test "Should show categories listing" do
+    # binding.pry
     get "/categories"
+    # binding.pry
     assert_select "a[href=?]", category_path(@category), text: @category.name
     assert_select "a[href=?]", category_path(@category2), text: @category2.name
 
